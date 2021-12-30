@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Contract with a ISendValueProxy that will catch reverts when attempting to transfer funds.",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MaybeSendValue.sol": "MaybeSendValue"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ISendValueProxy.sol": {
+			"keccak256": "0x82cafabc426f2a80133a8f857cd2c86c01336aa3e11f18e8ea2ed75b9a8ab00d",
+			"urls": [
+				"bzz-raw://daee5ed8b465d4099b13c3f2fc8b3431a10943d790d23ad2abf528348c898cb8",
+				"dweb:/ipfs/Qmbvi4mD5y3FJDDyP62G89XFxLgczpJQ94UKzGQzszFtm5"
+			]
+		},
+		"MaybeSendValue.sol": {
+			"keccak256": "0xc1835be6bd15a8412a54c6fc9f302098ec05fd0db9da6a93c5c19b4e0968d429",
+			"urls": [
+				"bzz-raw://f099c05e2ef71412ec58a9dc0869f973dbe940bd8891a28fc10915e24185de40",
+				"dweb:/ipfs/QmPpRPCfGy76ezmHdTZZtbn3p385un91CH2AvX9A1eG5vd"
+			]
+		},
+		"SendValueProxy.sol": {
+			"keccak256": "0x0fbe48a525bc57d040970f138fc610ced1c8a0181027a6fc9d89613a7aff25b3",
+			"urls": [
+				"bzz-raw://bc8c4f4e1b1556b0198e1ed3cde5b6bba75b968eeb10458bedf8af5e8a2920ee",
+				"dweb:/ipfs/QmVw2Pnh3fCfxZDviifejiRPGKLxSnbtsPFFAM3374UQti"
+			]
+		}
+	},
+	"version": 1
+}

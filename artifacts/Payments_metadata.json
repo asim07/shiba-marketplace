@@ -1,0 +1,186 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "SendValue",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dest",
+						"type": "address"
+					}
+				],
+				"name": "payments",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "payee",
+						"type": "address"
+					}
+				],
+				"name": "withdrawPayments",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"payments(address)": {
+					"details": "Returns the payments owed to an address.",
+					"params": {
+						"dest": "The creditor's address."
+					}
+				},
+				"withdrawPayments(address)": {
+					"details": "Withdraw accumulated payments, forwarding all gas to the recipient. Note that _any_ account can call this function, not just the `payee`. This means that contracts unaware of the `PullPayment` protocol can still receive funds this way, by having a separate account call {withdrawPayments}. WARNING: Forwarding all gas opens the door to reentrancy vulnerabilities. Make sure you trust the recipient, or are either following the checks-effects-interactions pattern or using {ReentrancyGuard}.",
+					"params": {
+						"payee": "Whose payments will be withdrawn."
+					}
+				}
+			},
+			"title": "Payments contract for SuperRare Marketplaces.",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Payments.sol": "Payments"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ISendValueProxy.sol": {
+			"keccak256": "0x82cafabc426f2a80133a8f857cd2c86c01336aa3e11f18e8ea2ed75b9a8ab00d",
+			"urls": [
+				"bzz-raw://daee5ed8b465d4099b13c3f2fc8b3431a10943d790d23ad2abf528348c898cb8",
+				"dweb:/ipfs/Qmbvi4mD5y3FJDDyP62G89XFxLgczpJQ94UKzGQzszFtm5"
+			]
+		},
+		"MaybeSendValue.sol": {
+			"keccak256": "0xc1835be6bd15a8412a54c6fc9f302098ec05fd0db9da6a93c5c19b4e0968d429",
+			"urls": [
+				"bzz-raw://f099c05e2ef71412ec58a9dc0869f973dbe940bd8891a28fc10915e24185de40",
+				"dweb:/ipfs/QmPpRPCfGy76ezmHdTZZtbn3p385un91CH2AvX9A1eG5vd"
+			]
+		},
+		"Payments.sol": {
+			"keccak256": "0x00202ca7df54e94967f888c2a0c510fc3ef78c2f54fdccd1c87c35efe10f191f",
+			"urls": [
+				"bzz-raw://3950ee1912a5bc4507d1f6294b05ee4917c8bedca3539da133a88220175dac7d",
+				"dweb:/ipfs/QmNiyaGLVF1C6aXdDT4fxB7uxHJTTmnXbZEbMjcKbcbzY4"
+			]
+		},
+		"SendValueOrEscrow.sol": {
+			"keccak256": "0xbb4341b51e12db9e07b2fb5f0c7cb6943d2f747bb19141d569f6e3d9ca7838b1",
+			"urls": [
+				"bzz-raw://f8ee5130063c28d489e3bfc2b664adeeea00b40b5c996db9731159da9dab93c2",
+				"dweb:/ipfs/QmXWJdseYM92fTthrjppEWJmoKgfQgNKfY1fBjK6Ld391L"
+			]
+		},
+		"SendValueProxy.sol": {
+			"keccak256": "0x0fbe48a525bc57d040970f138fc610ced1c8a0181027a6fc9d89613a7aff25b3",
+			"urls": [
+				"bzz-raw://bc8c4f4e1b1556b0198e1ed3cde5b6bba75b968eeb10458bedf8af5e8a2920ee",
+				"dweb:/ipfs/QmVw2Pnh3fCfxZDviifejiRPGKLxSnbtsPFFAM3374UQti"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol": {
+			"keccak256": "0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2",
+				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/math/SafeMath.sol": {
+			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c",
+				"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/payment/PullPayment.sol": {
+			"keccak256": "0x0696fbc20eb6f065f0752327251d10fadf472727ecc2160e1e7dd9a2a64f1d33",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ceeba7cc79d800f9f0f91c7da6f274a723280fe960118d6187c5dec66d631501",
+				"dweb:/ipfs/Qmbd7Nm5SW55146yC5C81TYfaKexqYBGmKLSAdW5AvmGFC"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/payment/escrow/Escrow.sol": {
+			"keccak256": "0xd1ad7c055efcaa14294e51fdef8c2f8f9a2ee1b622cfef50b0bec2ed56339a49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://86390a279edb3e655529aaeb96b4a62cf50bf6dcb202f481336af00e949ab20e",
+				"dweb:/ipfs/QmUFZEQi3T6R5YMqTErAjp65LAmknZNGf9pX6rhz1fMuFn"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Address.sol": {
+			"keccak256": "0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c",
+				"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		}
+	},
+	"version": 1
+}

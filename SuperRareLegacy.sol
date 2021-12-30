@@ -1,8 +1,8 @@
 pragma solidity 0.6.12;
 
-import "openzeppelin-solidity-pixura/contracts/token/ERC721/ERC721.sol";
-import "openzeppelin-solidity-pixura/contracts/access/Ownable.sol";
-import "openzeppelin-solidity-pixura/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC721/ERC721.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol";
 import "./ISupeRare.sol";
 import "./IERC721Creator.sol";
 
@@ -32,6 +32,9 @@ contract SuperRareLegacy is ERC721, IERC721Creator, Ownable {
 
     // Boolean for when minting has completed.
     bool private _mintingCompleted;
+
+    event  _mintWithNoEvent(address ownerOnOldSuperRare,uint256 _tokenId);
+    event _transferFromNoEvent(address outdatedOwner,address ownerOnOldSuperRare,uint256 _tokenId);
 
     /////////////////////////////////////////////////////////////////////////
     // Constructor

@@ -1,6 +1,6 @@
 pragma solidity 0.6.12;
 
-import "openzeppelin-solidity-solc6/contracts/payment/PullPayment.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/payment/PullPayment.sol";
 import "./MaybeSendValue.sol";
 
 /**

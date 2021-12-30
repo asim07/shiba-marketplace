@@ -1,6 +1,6 @@
 pragma solidity 0.6.12;
 
-import "openzeppelin-solidity-solc6/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol";
 import "./SuperRareMarketAuctionV2.sol";
 
 contract TestExpensiveWallet is Ownable {

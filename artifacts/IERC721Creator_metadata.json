@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenCreator",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"tokenCreator(uint256)": {
+					"details": "Gets the creator of the token",
+					"params": {
+						"_tokenId": "uint256 ID of the token"
+					},
+					"returns": {
+						"_0": "address of the creator"
+					}
+				}
+			},
+			"title": "IERC721 Non-Fungible Token Creator basic interface",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"IERC721Creator.sol": "IERC721Creator"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"IERC721Creator.sol": {
+			"keccak256": "0x28604471e31a8c75aef924a3d5848452be9172a26e8d8c38ffcbee576ebc0ab2",
+			"urls": [
+				"bzz-raw://48d8c68174d86c8f4cc7e8bbd5185e0640e40063fea15ca65d6f6e6b2848cc83",
+				"dweb:/ipfs/QmS35vVuQkBA5b8RAFfpb5dN4nHJvWiybdztPsgfCrmWqR"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,73 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "sendValue",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Contract that attempts to send value to an address.",
+			"kind": "dev",
+			"methods": {
+				"sendValue(address)": {
+					"details": "Send some wei to the address.",
+					"params": {
+						"_to": "address to send some value to."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SendValueProxy.sol": "SendValueProxy"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ISendValueProxy.sol": {
+			"keccak256": "0x82cafabc426f2a80133a8f857cd2c86c01336aa3e11f18e8ea2ed75b9a8ab00d",
+			"urls": [
+				"bzz-raw://daee5ed8b465d4099b13c3f2fc8b3431a10943d790d23ad2abf528348c898cb8",
+				"dweb:/ipfs/Qmbvi4mD5y3FJDDyP62G89XFxLgczpJQ94UKzGQzszFtm5"
+			]
+		},
+		"SendValueProxy.sol": {
+			"keccak256": "0x0fbe48a525bc57d040970f138fc610ced1c8a0181027a6fc9d89613a7aff25b3",
+			"urls": [
+				"bzz-raw://bc8c4f4e1b1556b0198e1ed3cde5b6bba75b968eeb10458bedf8af5e8a2920ee",
+				"dweb:/ipfs/QmVw2Pnh3fCfxZDviifejiRPGKLxSnbtsPFFAM3374UQti"
+			]
+		}
+	},
+	"version": 1
+}
