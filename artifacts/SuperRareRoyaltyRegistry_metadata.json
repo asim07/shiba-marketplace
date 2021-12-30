@@ -1,0 +1,516 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_iERC721TokenCreator",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateRoyaltyFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getERC721TokenRoyaltyPercentage",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPercentageForSetERC721ContractRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPercentageForSetERC721CreatorRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPercentageForSetERC721TokenRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "iERC721TokenCreator",
+				"outputs": [
+					{
+						"internalType": "contract IERC721TokenCreator",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "setIERC721TokenCreator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_percentage",
+						"type": "uint8"
+					}
+				],
+				"name": "setPercentageForSetERC721ContractRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_creatorAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_percentage",
+						"type": "uint8"
+					}
+				],
+				"name": "setPercentageForSetERC721CreatorRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_percentage",
+						"type": "uint8"
+					}
+				],
+				"name": "setPercentageForSetERC721TokenRoyalty",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenCreator",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"calculateRoyaltyFee(address,uint256,uint256)": {
+					"details": "Utililty function to calculate the royalty fee for a token.",
+					"params": {
+						"_amount": "uint256 wei amount.",
+						"_contractAddress": "address ERC721Contract address.",
+						"_tokenId": "uint256 token ID."
+					},
+					"returns": {
+						"_0": "uint256 wei fee."
+					}
+				},
+				"getERC721TokenRoyaltyPercentage(address,uint256)": {
+					"details": "Get the royalty fee percentage for a specific ERC721 contract.",
+					"params": {
+						"_contractAddress": "address ERC721Contract address.",
+						"_tokenId": "uint256 token ID."
+					},
+					"returns": {
+						"_0": "uint8 wei royalty fee."
+					}
+				},
+				"getPercentageForSetERC721ContractRoyalty(address)": {
+					"details": "Gets the royalty percentage set for an ERC721 contract",
+					"params": {
+						"_contractAddress": "address ERC721Contract address."
+					},
+					"returns": {
+						"_0": "uint8 wei royalty fee."
+					}
+				},
+				"getPercentageForSetERC721CreatorRoyalty(address,uint256)": {
+					"details": "Gets the royalty percentage set for an ERC721 creator",
+					"params": {
+						"_contractAddress": "address ERC721Contract address.",
+						"_tokenId": "uint256 token ID."
+					},
+					"returns": {
+						"_0": "uint8 wei royalty fee."
+					}
+				},
+				"getPercentageForSetERC721TokenRoyalty(address,uint256)": {
+					"details": "Gets the royalty percentage set for an ERC721 token",
+					"params": {
+						"_contractAddress": "address ERC721Contract address.",
+						"_tokenId": "uint256 token ID."
+					},
+					"returns": {
+						"_0": "uint8 wei royalty fee."
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setIERC721TokenCreator(address)": {
+					"details": "Set an address as an IERC721TokenCreator",
+					"params": {
+						"_contractAddress": "address of the IERC721TokenCreator contract"
+					}
+				},
+				"setPercentageForSetERC721ContractRoyalty(address,uint8)": {
+					"details": "Sets the royalty percentage set for an ERC721 token Requirements: - `_percentage` must be <= 100. - only the owner of this contract.",
+					"params": {
+						"_contractAddress": "address ERC721Contract address.",
+						"_percentage": "uint8 wei royalty fee."
+					}
+				},
+				"setPercentageForSetERC721CreatorRoyalty(address,uint8)": {
+					"details": "Sets the royalty percentage set for an ERC721 creator Requirements: - `_percentage` must be <= 100. - only the owner of this contract or the creator can call this method.",
+					"params": {
+						"_creatorAddress": "address token ID.",
+						"_percentage": "uint8 wei royalty fee."
+					}
+				},
+				"setPercentageForSetERC721TokenRoyalty(address,uint256,uint8)": {
+					"details": "Sets the royalty percentage set for an ERC721 token Requirements: - `_percentage` must be <= 100. - only the owner of this contract or the creator can call this method.",
+					"params": {
+						"_contractAddress": "address ERC721Contract address.",
+						"_percentage": "uint8 wei royalty fee.",
+						"_tokenId": "uint256 token ID."
+					}
+				},
+				"tokenCreator(address,uint256)": {
+					"details": "Gets the creator of the token",
+					"params": {
+						"_contractAddress": "address of the ERC721 contract",
+						"_tokenId": "uint256 ID of the token"
+					},
+					"returns": {
+						"_0": "address of the creator"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"title": "IERC721 Non-Fungible Token Creator basic interface",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SuperRareRoyaltyRegistry.sol": "SuperRareRoyaltyRegistry"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"IERC721CreatorRoyalty.sol": {
+			"keccak256": "0xb213db0f429673b27cdb5e65a97e86d49bd9d23dffa1cd0b67050e81f99a632d",
+			"urls": [
+				"bzz-raw://0dd753aebf7cf78ff073d02e27fe11a3819384cb1273e6928dba7e35a442cd47",
+				"dweb:/ipfs/QmW2Hx4DAt4AwWXrhWFUHSqZQJPhWJZrSz5y8z8pTVhpY5"
+			]
+		},
+		"IERC721TokenCreator.sol": {
+			"keccak256": "0xe404c8ed80c68cea7adf1fa4cbfc63f2131ec8945f991964a1d01b01a8a8170b",
+			"urls": [
+				"bzz-raw://3d4e5a09daa11a08c920ac43a2a0b44ff3013ad0ca83fc583b7e11b168c710cc",
+				"dweb:/ipfs/QmTPXxH4QWkfLM9P8jHYMvQvRsQaYLBPfC8Jq72DppGLps"
+			]
+		},
+		"SuperRareRoyaltyRegistry.sol": {
+			"keccak256": "0x3a7926ecda55df614fe0b6e2890bc416a0cf44b3405c1c26d7ed6f559538597b",
+			"urls": [
+				"bzz-raw://6cc212e18b37413163ae2b615b48db2fb24c73bad04e11285c0f415af818545b",
+				"dweb:/ipfs/QmSd55n14oi1v9AhE28n2xBtFWCntRKia9DNeqWaaTxEpB"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol": {
+			"keccak256": "0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa",
+				"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol": {
+			"keccak256": "0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2",
+				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/math/SafeMath.sol": {
+			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c",
+				"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Address.sol": {
+			"keccak256": "0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c",
+				"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/EnumerableSet.sol": {
+			"keccak256": "0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec",
+				"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V"
+			]
+		}
+	},
+	"version": 1
+}

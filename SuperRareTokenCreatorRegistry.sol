@@ -1,10 +1,10 @@
-pragma solidity 0.6.12;
+pragma solidity > 0.6.12;
 
-import "openzeppelin-solidity-solc6/contracts/math/SafeMath.sol";
-import "openzeppelin-solidity-solc6/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol";
 import "./IERC721CreatorRoyalty.sol";
 import "./IERC721Creator.sol";
-
+ 
 /**
  * @title IERC721 Non-Fungible Token Creator basic interface
  */
