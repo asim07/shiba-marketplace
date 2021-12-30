@@ -20,7 +20,6 @@
 			}
 		],
 		"devdoc": {
-			"details": "Interface for interacting with the SupeRare contract that holds SuperRare beta tokens.",
 			"kind": "dev",
 			"methods": {},
 			"version": 1
@@ -37,7 +36,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ISupeRare.sol": "ISupeRare"
+			"ISupeRare.sol": "SuperRare"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
