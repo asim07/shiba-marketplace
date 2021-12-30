@@ -6,71 +6,48 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": true,
+						"internalType": "uint256",
+						"name": "_newBidAmount",
+						"type": "uint256"
+					},
+					{
 						"internalType": "address",
-						"name": "_payee",
+						"name": "_originContract",
 						"type": "address"
 					},
 					{
-						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "_tokenId",
 						"type": "uint256"
-					}
-				],
-				"name": "SendValue",
-				"type": "event"
-			},
-			{
-				"inputs": [
+					},
 					{
 						"internalType": "address",
-						"name": "dest",
+						"name": "_market",
 						"type": "address"
 					}
 				],
-				"name": "payments",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
+				"name": "bid",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "payee",
-						"type": "address"
-					}
-				],
-				"name": "withdrawPayments",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
-			"details": "Contract to make payments. If a direct transfer fails, it will store the payment in escrow until the address decides to pull the payment.",
 			"kind": "dev",
 			"methods": {
-				"payments(address)": {
-					"details": "Returns the payments owed to an address.",
+				"bid(uint256,address,uint256,address)": {
+					"details": "Place a bid for the owner",
 					"params": {
-						"dest": "The creditor's address."
-					}
-				},
-				"withdrawPayments(address)": {
-					"details": "Withdraw accumulated payments, forwarding all gas to the recipient. Note that _any_ account can call this function, not just the `payee`. This means that contracts unaware of the `PullPayment` protocol can still receive funds this way, by having a separate account call {withdrawPayments}. WARNING: Forwarding all gas opens the door to reentrancy vulnerabilities. Make sure you trust the recipient, or are either following the checks-effects-interactions pattern or using {ReentrancyGuard}.",
-					"params": {
-						"payee": "Whose payments will be withdrawn."
+						"_market": "address of the marketplace to make the bid",
+						"_newBidAmount": "uint256 value in wei to bid, plus marketplace fee.",
+						"_originContract": "address of the contract storing the token.",
+						"_tokenId": "uint256 ID of the token"
 					}
 				}
 			},
@@ -84,7 +61,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"SendValueOrEscrow.sol": "SendValueOrEscrow"
+			"TestRequireFailOnPay.sol": "TestRequireFailOnPay"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -98,6 +75,20 @@
 		"remappings": []
 	},
 	"sources": {
+		"IERC721CreatorRoyalty.sol": {
+			"keccak256": "0xb213db0f429673b27cdb5e65a97e86d49bd9d23dffa1cd0b67050e81f99a632d",
+			"urls": [
+				"bzz-raw://0dd753aebf7cf78ff073d02e27fe11a3819384cb1273e6928dba7e35a442cd47",
+				"dweb:/ipfs/QmW2Hx4DAt4AwWXrhWFUHSqZQJPhWJZrSz5y8z8pTVhpY5"
+			]
+		},
+		"IERC721TokenCreator.sol": {
+			"keccak256": "0xe404c8ed80c68cea7adf1fa4cbfc63f2131ec8945f991964a1d01b01a8a8170b",
+			"urls": [
+				"bzz-raw://3d4e5a09daa11a08c920ac43a2a0b44ff3013ad0ca83fc583b7e11b168c710cc",
+				"dweb:/ipfs/QmTPXxH4QWkfLM9P8jHYMvQvRsQaYLBPfC8Jq72DppGLps"
+			]
+		},
 		"ISendValueProxy.sol": {
 			"keccak256": "0x82cafabc426f2a80133a8f857cd2c86c01336aa3e11f18e8ea2ed75b9a8ab00d",
 			"urls": [
@@ -105,11 +96,25 @@
 				"dweb:/ipfs/Qmbvi4mD5y3FJDDyP62G89XFxLgczpJQ94UKzGQzszFtm5"
 			]
 		},
+		"Marketplace/IMarketplaceSettings.sol": {
+			"keccak256": "0x78f9252a99678e4af054837ccc0d286a9ce9b97a1527f09fcef281958a4fe46c",
+			"urls": [
+				"bzz-raw://7a53f855607c64ce2dad143f158c0fb1f96538f4ab0ee5034596b3f4076a93e3",
+				"dweb:/ipfs/QmYcchGhNbEAXzXHSmJvsogo3c4hrryTQQqmnWHUSvfUT1"
+			]
+		},
 		"MaybeSendValue.sol": {
 			"keccak256": "0xc1835be6bd15a8412a54c6fc9f302098ec05fd0db9da6a93c5c19b4e0968d429",
 			"urls": [
 				"bzz-raw://f099c05e2ef71412ec58a9dc0869f973dbe940bd8891a28fc10915e24185de40",
 				"dweb:/ipfs/QmPpRPCfGy76ezmHdTZZtbn3p385un91CH2AvX9A1eG5vd"
+			]
+		},
+		"Payments.sol": {
+			"keccak256": "0x00202ca7df54e94967f888c2a0c510fc3ef78c2f54fdccd1c87c35efe10f191f",
+			"urls": [
+				"bzz-raw://3950ee1912a5bc4507d1f6294b05ee4917c8bedca3539da133a88220175dac7d",
+				"dweb:/ipfs/QmNiyaGLVF1C6aXdDT4fxB7uxHJTTmnXbZEbMjcKbcbzY4"
 			]
 		},
 		"SendValueOrEscrow.sol": {
@@ -126,12 +131,42 @@
 				"dweb:/ipfs/QmVw2Pnh3fCfxZDviifejiRPGKLxSnbtsPFFAM3374UQti"
 			]
 		},
+		"SuperRareMarketAuctionV2.sol": {
+			"keccak256": "0x3f25c9e96c4a71b11d73b2208e1d376c25db7ebbaa3f0a797584656f2e18d77b",
+			"urls": [
+				"bzz-raw://b888ecb5a5b1ac8b3430593bb7cff63af6e7c3bb5033d24ce2b3b13e052d4aa1",
+				"dweb:/ipfs/QmQoEzbogqFfbQGeUzfkoHCRk4djjGWCHD9yVpeKBX1aQY"
+			]
+		},
+		"TestRequireFailOnPay.sol": {
+			"keccak256": "0x5236c453bc619c419e9750d9b6aff71ddc7e7f3bc7d50fcd6afc2fd60cf2972c",
+			"urls": [
+				"bzz-raw://83bd762c9426c41d27b698477c71cd0643a10ad212f37b7f37520a06b74ae0b7",
+				"dweb:/ipfs/QmdWg5E2F7gQ1dr7xV88hFNmcso34QvCJ7TmqyCS399XDQ"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol": {
+			"keccak256": "0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa",
+				"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS"
+			]
+		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol": {
 			"keccak256": "0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2",
 				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/introspection/IERC165.sol": {
+			"keccak256": "0xf70bc25d981e4ec9673a995ad2995d5d493ea188d3d8f388bba9c227ce09fb82",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd970f51e3a77790c2f02b5b1759827c3b897c3d98c407b3631e8af32e3dc93c",
+				"dweb:/ipfs/QmPF85Amgbqjk3SNZKsPCsqCw8JfwYEPMnnhvMJUyX58je"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/math/SafeMath.sol": {
@@ -158,6 +193,14 @@
 				"dweb:/ipfs/QmUFZEQi3T6R5YMqTErAjp65LAmknZNGf9pX6rhz1fMuFn"
 			]
 		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0x2d99a0deb6648c34fbc66d6ac4a2d64798d7a5321b45624f6736fadc63da1962",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2dcdce5ede1e5e650d174ec0b35be7d47b6a50f30bc895ef0d9e59fb75052e45",
+				"dweb:/ipfs/QmQ2XFsDLTYqfEdw7pYzHiGtFRY11yQm4b6ynYgKqDxeB8"
+			]
+		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Address.sol": {
 			"keccak256": "0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea",
 			"license": "MIT",
@@ -172,6 +215,14 @@
 			"urls": [
 				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
 				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/EnumerableSet.sol": {
+			"keccak256": "0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec",
+				"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V"
 			]
 		}
 	},
