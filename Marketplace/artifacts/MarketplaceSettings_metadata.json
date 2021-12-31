@@ -698,7 +698,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
@@ -712,10 +712,10 @@
 			]
 		},
 		"Marketplace/MarketplaceSettings.sol": {
-			"keccak256": "0x67b61804cf7882e4adf3447375705d2c998510b58723e31d6d1064958a23a5cc",
+			"keccak256": "0xec057e15c277573c61870d19e239165a6bbcd762419dcb0e66d8d4404b7d8c2a",
 			"urls": [
-				"bzz-raw://8b7a55636fa66086406db2f374ddcf215843efa687de2bbeb94992a095ba05c5",
-				"dweb:/ipfs/QmUZLahkJhm6zKzugVveDGZws1aV2JjTTDnKJRZHsn6HxP"
+				"bzz-raw://2b78afcfe3336f29f66d2edc764c0bca564f5ccb33ca4cd21a25c2c57f9571ff",
+				"dweb:/ipfs/QmYAvvuK8SijtAwHfUZnDhsHEZzHgTx2gNSimpq3g9sSyr"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol": {

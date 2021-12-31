@@ -4,6 +4,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/con
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC721/IERC721.sol";
+//make it ERC20 compatible> 
 import "./IERC721CreatorRoyalty.sol";
 import "./Marketplace/IMarketplaceSettings.sol";
 import "./Payments.sol";

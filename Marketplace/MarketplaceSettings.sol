@@ -46,9 +46,9 @@ contract MarketplaceSettings is Ownable, AccessControl, IMarketplaceSettings {
     constructor() public {
         maxValue = 2**254; // 2 ^ 254 is max amount, prevents any overflow issues.
 
-        minValue = 1000; // all amounts must be greater than 1000 Wei.
+        minValue = 100; // all amounts must be greater than 1000 Wei.
 
-        marketplaceFeePercentage = 3; // 3% marketplace fee on all txs.
+        marketplaceFeePercentage = 2; // 1% marketplace fee on all txs.
 
         _setupRole(AccessControl.DEFAULT_ADMIN_ROLE, owner());
         grantRole(TOKEN_MARK_ROLE, owner());
