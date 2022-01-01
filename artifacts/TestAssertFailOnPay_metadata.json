@@ -1,0 +1,238 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newBidAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_originContract",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_market",
+						"type": "address"
+					}
+				],
+				"name": "bid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"bid(uint256,address,uint256,address)": {
+					"details": "Place a bid for the owner",
+					"params": {
+						"_market": "address of the marketplace to make the bid",
+						"_newBidAmount": "uint256 value in wei to bid, plus marketplace fee.",
+						"_originContract": "address of the contract storing the token.",
+						"_tokenId": "uint256 ID of the token"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TestAssertFailOnPay.sol": "TestAssertFailOnPay"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"IERC721CreatorRoyalty.sol": {
+			"keccak256": "0xb213db0f429673b27cdb5e65a97e86d49bd9d23dffa1cd0b67050e81f99a632d",
+			"urls": [
+				"bzz-raw://0dd753aebf7cf78ff073d02e27fe11a3819384cb1273e6928dba7e35a442cd47",
+				"dweb:/ipfs/QmW2Hx4DAt4AwWXrhWFUHSqZQJPhWJZrSz5y8z8pTVhpY5"
+			]
+		},
+		"IERC721TokenCreator.sol": {
+			"keccak256": "0xe404c8ed80c68cea7adf1fa4cbfc63f2131ec8945f991964a1d01b01a8a8170b",
+			"urls": [
+				"bzz-raw://3d4e5a09daa11a08c920ac43a2a0b44ff3013ad0ca83fc583b7e11b168c710cc",
+				"dweb:/ipfs/QmTPXxH4QWkfLM9P8jHYMvQvRsQaYLBPfC8Jq72DppGLps"
+			]
+		},
+		"ISendValueProxy.sol": {
+			"keccak256": "0x82cafabc426f2a80133a8f857cd2c86c01336aa3e11f18e8ea2ed75b9a8ab00d",
+			"urls": [
+				"bzz-raw://daee5ed8b465d4099b13c3f2fc8b3431a10943d790d23ad2abf528348c898cb8",
+				"dweb:/ipfs/Qmbvi4mD5y3FJDDyP62G89XFxLgczpJQ94UKzGQzszFtm5"
+			]
+		},
+		"Marketplace/IMarketplaceSettings.sol": {
+			"keccak256": "0x78f9252a99678e4af054837ccc0d286a9ce9b97a1527f09fcef281958a4fe46c",
+			"urls": [
+				"bzz-raw://7a53f855607c64ce2dad143f158c0fb1f96538f4ab0ee5034596b3f4076a93e3",
+				"dweb:/ipfs/QmYcchGhNbEAXzXHSmJvsogo3c4hrryTQQqmnWHUSvfUT1"
+			]
+		},
+		"MaybeSendValue.sol": {
+			"keccak256": "0xc1835be6bd15a8412a54c6fc9f302098ec05fd0db9da6a93c5c19b4e0968d429",
+			"urls": [
+				"bzz-raw://f099c05e2ef71412ec58a9dc0869f973dbe940bd8891a28fc10915e24185de40",
+				"dweb:/ipfs/QmPpRPCfGy76ezmHdTZZtbn3p385un91CH2AvX9A1eG5vd"
+			]
+		},
+		"Payments.sol": {
+			"keccak256": "0x00202ca7df54e94967f888c2a0c510fc3ef78c2f54fdccd1c87c35efe10f191f",
+			"urls": [
+				"bzz-raw://3950ee1912a5bc4507d1f6294b05ee4917c8bedca3539da133a88220175dac7d",
+				"dweb:/ipfs/QmNiyaGLVF1C6aXdDT4fxB7uxHJTTmnXbZEbMjcKbcbzY4"
+			]
+		},
+		"SendValueOrEscrow.sol": {
+			"keccak256": "0xbb4341b51e12db9e07b2fb5f0c7cb6943d2f747bb19141d569f6e3d9ca7838b1",
+			"urls": [
+				"bzz-raw://f8ee5130063c28d489e3bfc2b664adeeea00b40b5c996db9731159da9dab93c2",
+				"dweb:/ipfs/QmXWJdseYM92fTthrjppEWJmoKgfQgNKfY1fBjK6Ld391L"
+			]
+		},
+		"SendValueProxy.sol": {
+			"keccak256": "0x0fbe48a525bc57d040970f138fc610ced1c8a0181027a6fc9d89613a7aff25b3",
+			"urls": [
+				"bzz-raw://bc8c4f4e1b1556b0198e1ed3cde5b6bba75b968eeb10458bedf8af5e8a2920ee",
+				"dweb:/ipfs/QmVw2Pnh3fCfxZDviifejiRPGKLxSnbtsPFFAM3374UQti"
+			]
+		},
+		"SuperRareMarketAuctionV2.sol": {
+			"keccak256": "0x00706309cb6463cca0e4ad44e776bf1e261b8b35427e723b1973ea6d77e0b183",
+			"urls": [
+				"bzz-raw://4d4bf24d78966858f8ce67709fcd43e5a24f2469ef3b85ccd0f49bc720c2071f",
+				"dweb:/ipfs/QmXBNZvU8uBSCQtEazEVxNDehsoeafjy38C7iHh6YyicTr"
+			]
+		},
+		"TestAssertFailOnPay.sol": {
+			"keccak256": "0x073449cc4d4f8ca4cb67b5ef80f33804c39e2848e2e4f8b17c6a3d34a1120668",
+			"urls": [
+				"bzz-raw://fa8efc0fc1cc5bb6dc96532c750fe5290adaebc2bf65f8cfecd1119ae46cbf2e",
+				"dweb:/ipfs/QmdBsRo8Q2bhPQHyFDAXLC7pbBxasen3eNjyb8KAoiiquA"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol": {
+			"keccak256": "0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa",
+				"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol": {
+			"keccak256": "0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2",
+				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/introspection/IERC165.sol": {
+			"keccak256": "0xf70bc25d981e4ec9673a995ad2995d5d493ea188d3d8f388bba9c227ce09fb82",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd970f51e3a77790c2f02b5b1759827c3b897c3d98c407b3631e8af32e3dc93c",
+				"dweb:/ipfs/QmPF85Amgbqjk3SNZKsPCsqCw8JfwYEPMnnhvMJUyX58je"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/math/SafeMath.sol": {
+			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c",
+				"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/payment/PullPayment.sol": {
+			"keccak256": "0x0696fbc20eb6f065f0752327251d10fadf472727ecc2160e1e7dd9a2a64f1d33",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ceeba7cc79d800f9f0f91c7da6f274a723280fe960118d6187c5dec66d631501",
+				"dweb:/ipfs/Qmbd7Nm5SW55146yC5C81TYfaKexqYBGmKLSAdW5AvmGFC"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/payment/escrow/Escrow.sol": {
+			"keccak256": "0xd1ad7c055efcaa14294e51fdef8c2f8f9a2ee1b622cfef50b0bec2ed56339a49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://86390a279edb3e655529aaeb96b4a62cf50bf6dcb202f481336af00e949ab20e",
+				"dweb:/ipfs/QmUFZEQi3T6R5YMqTErAjp65LAmknZNGf9pX6rhz1fMuFn"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08",
+				"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0x2d99a0deb6648c34fbc66d6ac4a2d64798d7a5321b45624f6736fadc63da1962",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2dcdce5ede1e5e650d174ec0b35be7d47b6a50f30bc895ef0d9e59fb75052e45",
+				"dweb:/ipfs/QmQ2XFsDLTYqfEdw7pYzHiGtFRY11yQm4b6ynYgKqDxeB8"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Address.sol": {
+			"keccak256": "0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c",
+				"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/utils/EnumerableSet.sol": {
+			"keccak256": "0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec",
+				"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V"
+			]
+		}
+	},
+	"version": 1
+}

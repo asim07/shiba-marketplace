@@ -868,7 +868,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"rare.sol": "Chimera"
+			"raRible.sol": "Chimera"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -1002,7 +1002,7 @@
 				"dweb:/ipfs/QmYD25vdrQ1WyzD8png1nStRRPJBmnkf6fY8FthNrKfmmb"
 			]
 		},
-		"rare.sol": {
+		"raRible.sol": {
 			"keccak256": "0x218d1a78d71f7e4f2036611ecb99f8966bd193a19e3a50b505ee9d1246acfa3f",
 			"license": "MIT",
 			"urls": [

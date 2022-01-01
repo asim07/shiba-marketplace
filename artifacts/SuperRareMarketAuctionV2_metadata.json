@@ -872,10 +872,10 @@
 			]
 		},
 		"SuperRareMarketAuctionV2.sol": {
-			"keccak256": "0xd858b4c14b2c116114b90a2533da59c718e2a6e6c8640df38daee8e5d28ae7ee",
+			"keccak256": "0xc59759eacbbf1cf5f83d76a371a057e7360f55ac7c056436eb3c4be25da59dba",
 			"urls": [
-				"bzz-raw://d12a27929503d891a325c518a7290be4ec5bce6119cbb03129e5186d392485da",
-				"dweb:/ipfs/Qme1Xp1kfQ8ayrE8QPNaUsHG9v6DCGANhpU8DvYn7osEEH"
+				"bzz-raw://1ed8e1861cb713fcbb6e0795bc32707a16784c15a80758a5d8831f70eae1c80c",
+				"dweb:/ipfs/Qmf7gTgyNCuVesiB5hDpnPbmR1UCqkkBcMxQEU9GTpNBMi"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol": {

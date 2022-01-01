@@ -382,18 +382,19 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
         require(sp.amount > 0, "buy::Tokens priced at 0 are not for sale.");
 
         // Check hash enough tokens
-        require(
-            tokenPriceFeeIncluded(_originContract, _tokenId) >= shibaLite.balanceOf(msg.sender),
-            "buy::Must purchase the token for the correct price"
-        );
+        // require(
+        //     tokenPriceFeeIncluded(_originContract, _tokenId) <= shibaLite.balanceOf(msg.sender),
+        //     "buy::Must purchase the token for the correct price"
+        // );
 
         // Get token contract details.
         IERC721 erc721 = IERC721(_originContract);
         address tokenOwner = erc721.ownerOf(_tokenId);
 
         // Wipe the token price.
-        _resetTokenPrice(_originContract, _tokenId);
         shibaLite.transferFrom(msg.sender,address(this),tokenPriceFeeIncluded(_originContract, _tokenId));
+        _resetTokenPrice(_originContract, _tokenId);
+
         // Transfer token.
         erc721.safeTransferFrom(tokenOwner, msg.sender, _tokenId);
 

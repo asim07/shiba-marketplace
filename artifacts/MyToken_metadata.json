@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.2+commit.661d1103"
+		"version": "0.8.11+commit.d7f03943"
 	},
 	"language": "Solidity",
 	"output": {
@@ -477,7 +477,7 @@
 		"compilationTarget": {
 			"erc721.sol": "MyToken"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -602,11 +602,11 @@
 			]
 		},
 		"erc721.sol": {
-			"keccak256": "0xcb341e8fdf7e4d23c86bd11167b29cb9d8283ece88482a938fd3b20879031e3e",
+			"keccak256": "0x83c4108067a61c05c44bfc5996dfe2039f98c7ed948615db36f9b1f7e6f82c7b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://186a5ecbec2b2ec206567784654f33f5f4cfc7f0a573547fae112d7a23278062",
-				"dweb:/ipfs/QmVU5kTAXkqppiBg9fgPivRnVS2QFNCNAy62tEZLyQ5wky"
+				"bzz-raw://2aa8eee4638473b8bbb098a3ea340e74ef80b9abab12235bc17b76e9ce510d57",
+				"dweb:/ipfs/QmYfxaXo56RPuSC9VKU6H49PfdeJNVbWbj1aTRp4GbnYwp"
 			]
 		}
 	},
