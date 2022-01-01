@@ -4,6 +4,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/con
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/Ownable.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/access/AccessControl.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC721/IERC721.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/solc-0.6/contracts/token/ERC20/IERC20.sol";
 //make it ERC20 compatible> 
 import "./IERC721CreatorRoyalty.sol";
 import "./Marketplace/IMarketplaceSettings.sol";
@@ -23,11 +24,19 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
         uint256 amount;
     }
 
+
     // The sale price for a given token containing the seller and the amount of wei to be sold for
     struct SalePrice {
         address payable seller;
         uint256 amount;
     }
+
+    // The sale price for a given token containing the seller and the amount of shiba to be sold for
+    struct ShibaSalePrice {
+        address payable seller;
+        uint256 amount;
+    }
+
 
     /////////////////////////////////////////////////////////////////////////
     // State Variables
@@ -38,6 +47,9 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
 
     // Creator Royalty Interface
     IERC721CreatorRoyalty public iERC721CreatorRoyalty;
+
+    //shibaLite
+    IERC20 public shibaLite;
 
     // Mapping from ERC721 contract to mapping of tokenId to sale price.
     mapping(address => mapping(uint256 => SalePrice)) private tokenPrices;
@@ -95,7 +107,7 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
      * @param _iMarketSettings address to set as iMarketplaceSettings.
      * @param _iERC721CreatorRoyalty address to set as iERC721CreatorRoyalty.
      */
-    constructor(address _iMarketSettings, address _iERC721CreatorRoyalty)
+    constructor(address _iMarketSettings, address _iERC721CreatorRoyalty, address _shibaLite)
         public
     {
         require(
@@ -113,6 +125,9 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
 
         // Set iERC721CreatorRoyalty
         iERC721CreatorRoyalty = IERC721CreatorRoyalty(_iERC721CreatorRoyalty);
+
+        //set ShibaAddress
+        shibaLite = IERC20(_shibaLite);
 
         minimumBidIncreasePercentage = 10;
     }
@@ -261,6 +276,27 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
     }
 
     /////////////////////////////////////////////////////////////////////////
+    // safeBuyShiba
+    /////////////////////////////////////////////////////////////////////////
+    /**
+     * @dev Purchase the token with the expected amount. The current token owner must have the marketplace approved.
+     * @param _originContract address of the contract storing the token.
+     * @param _tokenId uint256 ID of the token
+     * @param _amount uint256 sl amount expecting to purchase the token for.
+     */
+    function safeBuyShiba(
+        address _originContract,
+        uint256 _tokenId,
+        uint256 _amount
+    ) external payable {
+        // Make sure the tokenPrice is the expected amount
+        require(
+            tokenPrices[_originContract][_tokenId].amount == _amount,
+            "safeBuy::Purchase amount must equal expected amount"
+        );
+        buy(_originContract, _tokenId);
+    }
+    /////////////////////////////////////////////////////////////////////////
     // buy
     /////////////////////////////////////////////////////////////////////////
     /**
@@ -327,6 +363,73 @@ contract SuperRareMarketAuctionV2 is Ownable, Payments {
         iMarketplaceSettings.markERC721Token(_originContract, _tokenId, true);
 
         emit Sold(_originContract, msg.sender, tokenOwner, sp.amount, _tokenId);
+    }
+
+
+    function buyShibaLite(address _originContract, uint256 _tokenId) public payable {
+        // The owner of the token must have the marketplace approved
+        ownerMustHaveMarketplaceApproved(_originContract, _tokenId);
+
+        // Check that the person who set the price still owns the token.
+        require(
+            _priceSetterStillOwnsTheToken(_originContract, _tokenId),
+            "buy::Current token owner must be the person to have the latest price."
+        );
+
+        SalePrice memory sp = tokenPrices[_originContract][_tokenId];
+
+        // Check that token is for sale.
+        require(sp.amount > 0, "buy::Tokens priced at 0 are not for sale.");
+
+        // Check hash enough tokens
+        require(
+            tokenPriceFeeIncluded(_originContract, _tokenId) >= shibaLite.balanceOf(msg.sender),
+            "buy::Must purchase the token for the correct price"
+        );
+
+        // Get token contract details.
+        IERC721 erc721 = IERC721(_originContract);
+        address tokenOwner = erc721.ownerOf(_tokenId);
+
+        // Wipe the token price.
+        _resetTokenPrice(_originContract, _tokenId);
+        shibaLite.transferFrom(msg.sender,address(this),tokenPriceFeeIncluded(_originContract, _tokenId));
+        // Transfer token.
+        erc721.safeTransferFrom(tokenOwner, msg.sender, _tokenId);
+
+        // if the buyer had an existing bid, return it
+        if (_addressHasBidOnToken(msg.sender, _originContract, _tokenId)) {
+            _refundBid(_originContract, _tokenId);
+        }
+
+        // Payout all parties.
+        // address payable owner = _makePayable(owner());
+        // Payments.payout(
+        //     sp.amount,
+        //     !iMarketplaceSettings.hasERC721TokenSold(_originContract, _tokenId),
+        //     iMarketplaceSettings.getMarketplaceFeePercentage(),
+        //     iERC721CreatorRoyalty.getERC721TokenRoyaltyPercentage(
+        //         _originContract,
+        //         _tokenId
+        //     ),
+        //     iMarketplaceSettings.getERC721ContractPrimarySaleFeePercentage(
+        //         _originContract
+        //     ),
+        //     _makePayable(tokenOwner),
+        //     owner,
+        //     iERC721CreatorRoyalty.tokenCreator(_originContract, _tokenId),
+        //     owner
+        // );
+
+        // Set token as sold
+
+        iMarketplaceSettings.markERC721Token(_originContract, _tokenId, true);
+
+        emit Sold(_originContract, msg.sender, tokenOwner, sp.amount, _tokenId);
+    }
+    
+    function testing() public  {
+        shibaLite.transferFrom(msg.sender,address(this),200);
     }
 
     /////////////////////////////////////////////////////////////////////////
