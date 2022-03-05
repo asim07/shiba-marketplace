@@ -86,7 +86,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/
         whitelistMap[_newAddress] = true;
     }
 }
-contract Chimera is Initializable, ERC721Upgradeable, OwnableUpgradeable, Whitelist {
+contract ShibaLite is Initializable, ERC721Upgradeable, OwnableUpgradeable, Whitelist {
     using SafeMathUpgradeable for uint256;
     
     string private _name;
@@ -166,7 +166,6 @@ contract Chimera is Initializable, ERC721Upgradeable, OwnableUpgradeable, Whitel
      * param _tokenType of the token to make it PHYSICAL or DIGITAL
      */
     function addNewToken(string memory _uri, TokenType _tokenType) public {
-      require(isWhitelisted(msg.sender), "must be whitelisted to create tokens");
       _createToken(_uri, msg.sender, _tokenType);
     }
 

@@ -199,7 +199,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"raRible.sol": "Whitelist"
+			"shiberc721.sol": "Whitelist"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -207,7 +207,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
@@ -333,12 +333,12 @@
 				"dweb:/ipfs/QmYD25vdrQ1WyzD8png1nStRRPJBmnkf6fY8FthNrKfmmb"
 			]
 		},
-		"raRible.sol": {
-			"keccak256": "0x218d1a78d71f7e4f2036611ecb99f8966bd193a19e3a50b505ee9d1246acfa3f",
+		"shiberc721.sol": {
+			"keccak256": "0xa22293c2e34d5c1aa10df9b60b574e7e60d9d50a806b07d8639d9e4d2a457287",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b67726e837ab641d0051fc111f9f10cc56204a79999a352b9841515d3ed92e7d",
-				"dweb:/ipfs/QmZp4nw2UHSTT71XqP1W53C8voWPMdFnvdv8ZmgPGzYbgR"
+				"bzz-raw://9bdada2776d0977c1d85e26861e97d87e6c9271e3353ce7ae7b6ce2012909b4b",
+				"dweb:/ipfs/QmaupmHDewHWyx4xxN3FsiMt2Qr35FmtP4aSqNqiYVujvS"
 			]
 		}
 	},

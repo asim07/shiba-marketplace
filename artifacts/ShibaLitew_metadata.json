@@ -117,7 +117,7 @@
 					},
 					{
 						"indexed": false,
-						"internalType": "enum Chimera.TokenType",
+						"internalType": "enum ShibaLitew.TokenType",
 						"name": "_tokenType",
 						"type": "uint8"
 					}
@@ -158,7 +158,7 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum Chimera.TokenType",
+						"internalType": "enum ShibaLitew.TokenType",
 						"name": "_tokenType",
 						"type": "uint8"
 					}
@@ -287,7 +287,7 @@
 				"name": "getTokenSaleType",
 				"outputs": [
 					{
-						"internalType": "enum Chimera.TokenSaleType",
+						"internalType": "enum ShibaLitew.TokenSaleType",
 						"name": "_tokensaleType",
 						"type": "uint8"
 					}
@@ -615,7 +615,7 @@
 				"name": "tokenType",
 				"outputs": [
 					{
-						"internalType": "enum Chimera.TokenType",
+						"internalType": "enum ShibaLitew.TokenType",
 						"name": "_tokentype",
 						"type": "uint8"
 					}
@@ -704,7 +704,7 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum Chimera.TokenType",
+						"internalType": "enum ShibaLitew.TokenType",
 						"name": "_tokenType",
 						"type": "uint8"
 					}
@@ -868,7 +868,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"shiberc721.sol": "Chimera"
+			"shiberc721.sol": "ShibaLitew"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -1003,11 +1003,11 @@
 			]
 		},
 		"shiberc721.sol": {
-			"keccak256": "0xd0d4828eb9438a1ccd6ffcb94d1c9dca873511d445d66af9840d04bff7c80e4c",
+			"keccak256": "0xc28aa1e0a2ff09192e9d623fc6edc19525576b40e5b2885186ad4e661af7132b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bd11d06ba304705088c157beccf24a1fa136193382e0e44a55f975929281abf9",
-				"dweb:/ipfs/QmdNj8EXkwZ4VX1wWfJZwA5WPUPgwKUDga5fJxCd8FfLrr"
+				"bzz-raw://e5432b750bcdb0b2e69b06bc60b07d9cf2c7b3239866e1cc58f39194fc416009",
+				"dweb:/ipfs/QmdvdBgtHh6rHF2yisqDccraucwatdLiZ3YiicAuxn97WN"
 			]
 		}
 	},
